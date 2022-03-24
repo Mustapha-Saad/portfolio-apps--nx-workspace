@@ -1,0 +1,74 @@
+{
+  "root": "apps/ecommerce-product-page",
+  "sourceRoot": "apps/ecommerce-product-page/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ecommerce-product-page",
+        "index": "apps/ecommerce-product-page/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ecommerce-product-page/src/main.tsx",
+        "polyfills": "apps/ecommerce-product-page/src/polyfills.ts",
+        "tsConfig": "apps/ecommerce-product-page/tsconfig.app.json",
+        "assets": [
+          "apps/ecommerce-product-page/src/favicon.ico",
+          "apps/ecommerce-product-page/src/assets"
+        ],
+        "styles": ["apps/ecommerce-product-page/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ecommerce-product-page/src/environments/environment.ts",
+              "with": "apps/ecommerce-product-page/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "ecommerce-product-page:build",
+        "hmr": true,
+        "proxyConfig": "apps/ecommerce-product-page/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "ecommerce-product-page:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ecommerce-product-page/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ecommerce-product-page"],
+      "options": {
+        "jestConfig": "apps/ecommerce-product-page/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

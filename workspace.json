@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "ecommerce-product-page": "apps/ecommerce-product-page",
+    "ecommerce-product-page-e2e": "apps/ecommerce-product-page-e2e"
+  }
+}
