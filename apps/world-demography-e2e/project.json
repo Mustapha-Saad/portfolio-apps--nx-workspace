@@ -1,0 +1,28 @@
+{
+  "root": "apps/world-demography-e2e",
+  "sourceRoot": "apps/world-demography-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/world-demography-e2e/cypress.json",
+        "devServerTarget": "world-demography:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "world-demography:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/world-demography-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["world-demography"]
+}

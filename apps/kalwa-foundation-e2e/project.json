@@ -1,0 +1,28 @@
+{
+  "root": "apps/kalwa-foundation-e2e",
+  "sourceRoot": "apps/kalwa-foundation-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/kalwa-foundation-e2e/cypress.json",
+        "devServerTarget": "kalwa-foundation:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "kalwa-foundation:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/kalwa-foundation-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["kalwa-foundation"]
+}

@@ -1,0 +1,112 @@
+{
+  "root": "apps/kalwa-foundation",
+  "sourceRoot": "apps/kalwa-foundation/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/kalwa-foundation",
+        "index": "apps/kalwa-foundation/src/index.html",
+        "baseHref": "/",
+        "main": "apps/kalwa-foundation/src/main.tsx",
+        "polyfills": "apps/kalwa-foundation/src/polyfills.ts",
+        "tsConfig": "apps/kalwa-foundation/tsconfig.app.json",
+        "assets": [
+          "apps/kalwa-foundation/src/favicon.ico",
+          "apps/kalwa-foundation/src/assets"
+        ],
+        "styles": [
+          "apps/kalwa-foundation/src/assets/css/font-awesome.min.css",
+          "apps/kalwa-foundation/src/assets/css/themify-icons.css",
+          "apps/kalwa-foundation/src/assets/css/elegant-font-icons.css",
+          "apps/kalwa-foundation/src/assets/css/elegant-line-icons.css",
+          "apps/kalwa-foundation/src/assets/css/bootstrap.min.css",
+          "apps/kalwa-foundation/src/assets/css/venobox/venobox.css",
+          "apps/kalwa-foundation/src/assets/css/owl.carousel.css",
+          "apps/kalwa-foundation/src/assets/css/slicknav.min.css",
+          "apps/kalwa-foundation/src/assets/css/css-animation.min.css",
+          "apps/kalwa-foundation/src/assets/css/nivo-slider.css",
+          "apps/kalwa-foundation/src/assets/css/main.css",
+          "apps/kalwa-foundation/src/assets/css/responsive.css",
+          "apps/kalwa-foundation/src/styles.scss"
+        ],
+        "scripts": [
+          "apps/kalwa-foundation/src/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery-1.12.4.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/bootstrap.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/tether.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/owl.carousel.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/smooth-scroll.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/venobox.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery.ajaxchimp.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery.counterup.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery.waypoints.v2.0.3.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery.slicknav.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/jquery.nivo.slider.pack.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/letteranimation.min.js",
+          "apps/kalwa-foundation/src/assets/js/vendor/wow.min.js",
+          "apps/kalwa-foundation/src/assets/js/contact.js",
+          "apps/kalwa-foundation/src/assets/js/main.js"
+        ],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/kalwa-foundation/src/environments/environment.ts",
+              "with": "apps/kalwa-foundation/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "kalwa-foundation:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "kalwa-foundation:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/kalwa-foundation/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/kalwa-foundation"
+      ],
+      "options": {
+        "jestConfig": "apps/kalwa-foundation/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
